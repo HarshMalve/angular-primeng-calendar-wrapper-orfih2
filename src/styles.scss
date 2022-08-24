@@ -1,0 +1,12 @@
+$calendar-day-colors: ('red', #ff0000), ('green', #008000), ('blue', blue),
+  ('orange', orange), ('aqua', aqua), ('teal', teal);
+
+body app-calendar .ui-datepicker table td > a {
+  transition: all .1s;
+  @each $color in $calendar-day-colors {
+    &.highlight--#{nth($color, 1)}:not(.ui-state-active) {
+      border-radius: 50%;
+      background-color: nth($color, 2);
+    }
+  }
+}

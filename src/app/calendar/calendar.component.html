@@ -1,0 +1,48 @@
+<div class="container">
+  <p-calendar
+    calendarMask
+    [onInputBlur]="_onInputBlur"
+    #calendar
+    [inline]="false"
+    [showIcon]="false"
+    [inputId]="id"
+    [required]="required"
+    [disabled]="disabled"
+    [readonlyInput]="readonly"
+    [showOnFocus]="false"
+    dateFormat="yy-mm-dd"
+    [placeholder]=""
+    [(ngModel)]="value"
+    [yearNavigator]="yearNavigation"
+    [monthNavigator]="monthNavigation || yearNavigation"
+    [yearRange]="yearRange"
+    [showTime]="displayMode !== 'date'"
+    [timeOnly]="displayMode === 'time'"
+    hourFormat="24"
+    [minDate]="minDate"
+    [maxDate]="maxDate"
+    [disabledDates]="disabledDates"
+    [disabledDays]="disabledDays"
+    [showButtonBar]="false"
+    [numberOfMonths]="1"
+  >
+    <ng-template pTemplate="date" let-date>
+      <span
+        *appLet="date | dateHighlightColor: highlightedDates as highlightColor"
+        [appBindAncestorClass]="'highlight--' + highlightColor"
+        ancestorSelector="a"
+        [bindClassWhen]="highlightColor"
+      >
+        {{ date.day }}
+      </span>
+    </ng-template>
+  </p-calendar>
+  <button
+    *ngIf="!disabled && displayMode !== 'time'"
+    tabindex="-1"
+    class="calendar-icon"
+    (click)="readonly ? {} : _focus()"
+  >
+    <i class="pi pi-calendar"></i>
+  </button>
+</div>

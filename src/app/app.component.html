@@ -1,0 +1,31 @@
+<h2>PrimeNG calendar wrapper</h2>
+
+Value: {{ value | date }}
+<br>
+<br>
+<app-calendar displayMode="time"></app-calendar>
+Time
+<br>
+<app-calendar displayMode="both" [(ngModel)]="value"></app-calendar>
+Time and Date
+<br>
+<app-calendar [(ngModel)]="value" [minDate]="min" [maxDate]="max" [disabledDates]="disabled"></app-calendar>
+Default with min/max and disabled dates
+<br>
+<app-calendar [(ngModel)]="value" [required]="true"></app-calendar>
+Required
+<br>
+<app-calendar [(ngModel)]="value" [readonly]="true"></app-calendar>
+Readonly
+<br>
+<app-calendar [(ngModel)]="value" [disabled]="true"></app-calendar>
+Disabled
+<br>
+<app-calendar [(ngModel)]="value" [monthNavigation]="true"></app-calendar>
+Month navigation
+<br>
+<app-calendar [(ngModel)]="value" [yearNavigation]="true"></app-calendar>
+Year navigation
+<br>
+<app-calendar [highlightedDates]="highlights" [disabledDates]="disabled"></app-calendar>
+Highlighted dates
